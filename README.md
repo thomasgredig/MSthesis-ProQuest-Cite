@@ -6,12 +6,12 @@ The details provided in theses and dissertations is often helpful towards new re
 
 First use the [advanced search](https://search.proquest.com/advanced) of ProQuest, or the [dissertation search](http://search.proquest.com/dissertations/) platform.
 
-Use **adv("LASTNAME,FIRSTNAME")** to search for an advisor. You could also use **ab()** to search the abstracts, but that could give large datasets.
+Use **adv("LASTNAME,FIRSTNAME")** to search for an advisor. You could also use **ab()** to search the abstracts, but that could give large datasets. The institution is searched with **SCH("Long Beach")**. Other searches include **cc(0611: Condensed matter physics)**, **cc(0605: Physics)**.cc(0600: Solid State Physics)
 
 
 ## Exporting BibTeX
 
-After the theses are found, select the `Cite` next to `Email`, `Save` and `Print`. Choose BibTeX as the style and output as text only. Either paste and copy or download to a text file.
+After the theses are found, select the `Cite`, then choose BibTeX as the style and output as text only. Either paste and copy or download to a text file.
 
 
 Proquest incorrectly categorizes mastertheses as phdtheses, so the references do not show up properly. The reformatting follows the (BibTeX examples)[https://www.verbosus.com/bibtex-style-examples.html].
