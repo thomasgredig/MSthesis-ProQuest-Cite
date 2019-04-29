@@ -121,7 +121,9 @@ d <- bind_rows(items)
 d$B
 d <- as.data.frame(d)
 d$lastname = unlist(lapply(strsplit(d$author   ,','),'[[',1))
-
+d$lastname = unlist(lapply(d$lastname, function(x) { tools::toTitleCase(tolower(x)) }))
+d$firstname = unlist(lapply(strsplit(d$author   ,','),'[[',2))
+d$firstname = unlist(lapply(d$firstname, function(x) { tools::toTitleCase(tolower(x)) }))
 write.csv(d, file=gsub('\\.txt$','\\.csv',file))
 
 # fix the references
@@ -131,7 +133,7 @@ for(i in 1:nrow(d)) {
     rref <- bibentry(
         key = paste0(d$lastname[i],'_',d$year[i]),
         bibtype = "MastersThesis",
-        author = person(d$author[i]),
+        author = person(given=d$firstname[i], family=d$lastname[i]),
         title = d$title[i],
         school = 'California State University Long Beach',
         address = 'Department of Physics and Astronomy',
