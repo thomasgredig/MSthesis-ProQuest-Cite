@@ -118,7 +118,6 @@ items <- lapply(items,
                 }
 )
 d <- bind_rows(items)
-d$B
 d <- as.data.frame(d)
 d$lastname = unlist(lapply(strsplit(d$author   ,','),'[[',1))
 
@@ -133,8 +132,8 @@ for(i in 1:nrow(d)) {
         bibtype = "MastersThesis",
         author = person(d$author[i]),
         title = d$title[i],
-        school = 'California State University Long Beach',
-        address = 'Department of Physics and Astronomy',
+        school = SCHOOL.NAME,
+        address = DEPT.NAME,
         year = d$year[i],
         #pages = paste0("1-",d$pages[i]),
         note = paste("ISBN: ",d$isbn[i]),

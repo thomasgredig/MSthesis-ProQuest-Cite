@@ -24,5 +24,5 @@ ProQuest does not export the school / university either, so it needs to be added
 Follow these steps:
 
 * Configure `myConfig.R` with the path information
-* Save the source data as explained above in a text file with the extension `ProQuest` somewhere in the filename.
+* Save the source data as explained above in a text file with the extension `.txt` and the text `ProQuest` somewhere in the filename.
 * Run `msThesis-master.R` to pick-up latest source data file and convert to bib file with the same name. 

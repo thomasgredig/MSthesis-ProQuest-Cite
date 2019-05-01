@@ -7,7 +7,8 @@
 
 # path to save input bibliography file
 path.source = '.'
-
+SCHOOL.NAME = 'University Name'
+DEPT.NAME = 'Department of Physics'
 
 # personalize overwrite
 # --------------------
