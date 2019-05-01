@@ -1,12 +1,15 @@
 # MSthesis-ProQuest-Cite
 
-The details provided in theses and dissertations is often helpful towards new research projects. Referencing those works is connected with more work than needed, and there are some issue with non-distinction of dissertation and thesis by ProQuest. 
+The details provided in theses and dissertations are often helpful towards new research projects. Referencing those works is connected with more work than needed, and there are some issue with non-distinction of dissertation and thesis by ProQuest. 
 
 ## Finding M.S. Theses
 
 First use the [advanced search](https://search.proquest.com/advanced) of ProQuest, or the [dissertation search](http://search.proquest.com/dissertations/) platform.
 
-Use **adv("LASTNAME,FIRSTNAME")** to search for an advisor. You could also use **ab()** to search the abstracts, but that could give large datasets. The institution is searched with **SCH("Long Beach")**. Other searches include **cc(0611: Condensed matter physics)**, **cc(0605: Physics)**.cc(0600: Solid State Physics)
+Use **adv("LASTNAME,FIRSTNAME")** to search for an advisor. You could also use **ab()** to search the abstracts, but that could give large datasets. The institution is searched with **SCH("Long Beach")**. Other searches include **cc(0611: Condensed matter physics)**, **cc(0605: Physics)**, **cc(0600: Solid State Physics)**, and for nulcear physics cc(798)
+
+Finding Physics Department contributions:
+- (cc(0605: Physics) or cc(0611) or cc(0798) or cc(0600)) and SCH("Long Beach")
 
 
 ## Exporting BibTeX

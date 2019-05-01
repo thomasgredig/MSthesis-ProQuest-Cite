@@ -44,3 +44,6 @@ myConfig.R
 .DS_Store
 MSthesesBibliography.pdf
 ProQuestCitations-2019-04-27.bib
+data/ProQuest-Phyiscs-Dept-CSULB.csv
+data/ProQuest-Phyiscs-Dept-CSULB.txt
+ProQuest-Phyiscs-Dept-CSULB.bib
