@@ -144,7 +144,7 @@ for(i in 1:nrow(d)) {
         school = SCHOOL.NAME,
         address = DEPT.NAME,
         year = d$year[i],
-        #pages = paste0("1-",d$pages[i]),
+        pages = d$pages[i],
         note = paste("ISBN: ",d$isbn[i]),
         url = d$url[i]
     )    
