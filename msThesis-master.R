@@ -125,13 +125,19 @@ d$firstname = unlist(lapply(strsplit(d$author   ,','),'[[',2))
 d$firstname = unlist(lapply(d$firstname, function(x) { tools::toTitleCase(tolower(x)) }))
 write.csv(d, file=gsub('\\.txt$','\\.csv',file))
 
+library(ggplot2)
+ggplot(d, aes(year)) + geom_histogram(stat='count', fill='red') +
+    theme_bw() +
+    theme(axis.text.x = element_text(angle = 90)) 
+ggsave(file.path(path.source,'MSthesisYear.png'), width=6, height=4, dpi=220)
+
 # fix the references
 # see https://github.com/ropensci/bib2df
 my.bib.file = gsub('\\.txt$','\\.bib',file)
 for(i in 1:nrow(d)) {
     # see https://www.rdocumentation.org/packages/utils/versions/3.5.3/topics/bibentry
     rref <- bibentry(
-        key = paste0(d$lastname[i],'_',d$year[i]),
+        key = gsub("\\s","",paste0(d$lastname[i],'_',d$year[i])),
         bibtype = "MastersThesis",
         author = person(given=d$firstname[i], family=d$lastname[i]),
         title = d$title[i],
