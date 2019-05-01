@@ -127,6 +127,7 @@ write.csv(d, file=gsub('\\.txt$','\\.csv',file))
 
 # fix the references
 # see https://github.com/ropensci/bib2df
+my.bib.file = gsub('\\.txt$','\\.bib',file)
 for(i in 1:nrow(d)) {
     # see https://www.rdocumentation.org/packages/utils/versions/3.5.3/topics/bibentry
     rref <- bibentry(
@@ -141,9 +142,18 @@ for(i in 1:nrow(d)) {
         note = paste("ISBN: ",d$isbn[i]),
         url = d$url[i]
     )    
-    write.bib(rref,file=gsub('\\.txt$','\\.bib',file), append=TRUE)
-    
+    write.bib(rref,file=my.bib.file, append=TRUE)
 }
+
+
+# copy TEX file
+myTeX = readLines("MSthesesBibliography.tex",-1)
+my.bib.fileShort = gsub('\\.bib','',my.bib.file)
+my.bib.fileShort = gsub(path.source,'',my.bib.fileShort)
+my.bib.fileShort = gsub('^/','',my.bib.fileShort)
+myTeX[24] = gsub('BIB-FILE',my.bib.fileShort,myTeX[24])
+my.tex.file = gsub('\\.txt$','\\.tex',file)
+writeLines(myTeX,my.tex.file)
 
 
 ## Convert to BibTeX

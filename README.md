@@ -8,8 +8,9 @@ First use the [advanced search](https://search.proquest.com/advanced) of ProQues
 
 Use **adv("LASTNAME,FIRSTNAME")** to search for an advisor. You could also use **ab()** to search the abstracts, but that could give large datasets. The institution is searched with **SCH("Long Beach")**. Other searches include **cc(0611: Condensed matter physics)**, **cc(0605: Physics)**, **cc(0600: Solid State Physics)**, and for nulcear physics cc(798)
 
-Finding Physics Department contributions:
+Possible searches:
 - (cc(0605: Physics) or cc(0611) or cc(0798) or cc(0600)) and SCH("Long Beach")
+- adv("last,first")
 
 
 ## Exporting BibTeX
