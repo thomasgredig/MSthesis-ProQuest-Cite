@@ -123,7 +123,11 @@ d$lastname = unlist(lapply(strsplit(d$author   ,','),'[[',1))
 d$lastname = unlist(lapply(d$lastname, function(x) { tools::toTitleCase(tolower(x)) }))
 d$firstname = unlist(lapply(strsplit(d$author   ,','),'[[',2))
 d$firstname = unlist(lapply(d$firstname, function(x) { tools::toTitleCase(tolower(x)) }))
-write.csv(d, file=gsub('\\.txt$','\\.csv',file))
+
+d$firstTitleWord = unlist(lapply(strsplit(gsub('^A ','',d$title),' '),'[[',1))
+
+
+write.csv(d, file=paste0(file,'.csv'))
 
 library(ggplot2)
 ggplot(d, aes(year)) + geom_histogram(stat='count', fill='red') +
@@ -133,20 +137,20 @@ ggsave(file.path(path.source,'MSthesisYear.png'), width=6, height=4, dpi=220)
 
 # fix the references
 # see https://github.com/ropensci/bib2df
-my.bib.file = gsub('\\.txt$','\\.bib',file)
+my.bib.file = paste0(file,'-FIXED.bib')
 for(i in 1:nrow(d)) {
     # see https://www.rdocumentation.org/packages/utils/versions/3.5.3/topics/bibentry
     rref <- bibentry(
-        key = gsub("\\s","",paste0(d$lastname[i],'_',d$year[i])),
+        key = gsub("\\s","",paste0(d$lastname[i],'_',d$firstTitleWord[i],'_',d$year[i])),
         bibtype = "MastersThesis",
         author = person(given=d$firstname[i], family=d$lastname[i]),
-        title = d$title[i],
+        title = paste0('{',tools::toTitleCase(tolower(d$title[i])),'}'),
+        type = TYPE.NAME,
         school = SCHOOL.NAME,
         address = DEPT.NAME,
         year = d$year[i],
         pages = d$pages[i],
-        note = paste("ISBN: ",d$isbn[i]),
-        url = d$url[i]
+        note = paste("ISBN: ",d$isbn[i])
     )    
     write.bib(rref,file=my.bib.file, append=TRUE)
 }
@@ -158,7 +162,7 @@ my.bib.fileShort = gsub('\\.bib','',my.bib.file)
 my.bib.fileShort = gsub(path.source,'',my.bib.fileShort)
 my.bib.fileShort = gsub('^/','',my.bib.fileShort)
 myTeX[24] = gsub('BIB-FILE',my.bib.fileShort,myTeX[24])
-my.tex.file = gsub('\\.txt$','\\.tex',file)
+my.tex.file = paste0(file,'-master.tex')
 writeLines(myTeX,my.tex.file)
 
 

@@ -19,7 +19,7 @@ if (path.source=='.') {
 
 # find latest file
 # ----------------
-file.list = file.path(path.source,dir(path.source,pattern='.*ProQuest.*txt$'))
+file.list = file.path(path.source,dir(path.source,pattern='.*ProQuest.*'))
 if (length(file.list)==0) {
     print("ERROR: no ProQuest data file found.")
 }

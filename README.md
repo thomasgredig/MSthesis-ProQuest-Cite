@@ -1,6 +1,6 @@
 # MSthesis-ProQuest-Cite
 
-The details provided in theses and dissertations are often helpful towards new research projects. Referencing those works is connected with more work than needed, and there are some issue with non-distinction of dissertation and thesis by ProQuest. 
+The details provided in theses and dissertations are often helpful towards new research projects. Referencing those works is connected with more work than needed. ProQuest Dissertations and Theses does not distinguish M.S. theses and Dissertations properly. BibTeX exported references for M.S. theses from ProQuest are incorrect and need to be corrected using this code.
 
 ## Finding M.S. Theses
 
@@ -18,7 +18,7 @@ Possible searches:
 After the theses are found, select the `Cite`, then choose BibTeX as the style and output as text only. Either paste and copy or download to a text file.
 
 
-Proquest incorrectly categorizes mastertheses as phdtheses, so the references do not show up properly. The reformatting follows the (BibTeX examples)[https://www.verbosus.com/bibtex-style-examples.html].
+ProQuest incorrectly categorizes mastertheses as phdtheses, so the references do not show up properly. The reformatting follows the (BibTeX examples)[https://www.verbosus.com/bibtex-style-examples.html].
 
 ProQuest does not export the school / university either, so it needs to be added separately. 
 
