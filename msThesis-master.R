@@ -125,7 +125,7 @@ d$firstname = unlist(lapply(strsplit(d$author   ,','),'[[',2))
 d$firstname = unlist(lapply(d$firstname, function(x) { tools::toTitleCase(tolower(x)) }))
 
 d$firstTitleWord = unlist(lapply(strsplit(gsub('^A ','',d$title),' '),'[[',1))
-
+d$UMI = gsub('.*docview\\/(\\d+).*','\\1',d$url)
 
 write.csv(d, file=paste0(file,'.csv'))
 
@@ -150,7 +150,7 @@ for(i in 1:nrow(d)) {
         address = DEPT.NAME,
         year = d$year[i],
         pages = d$pages[i],
-        note = paste("ISBN: ",d$isbn[i])
+        note = paste0("ProQuest UMI No. ",d$UMI[i],', ISBN: ',d$isbn[i])
     )    
     write.bib(rref,file=my.bib.file, append=TRUE)
 }
@@ -164,7 +164,6 @@ my.bib.fileShort = gsub('^/','',my.bib.fileShort)
 myTeX[24] = gsub('BIB-FILE',my.bib.fileShort,myTeX[24])
 my.tex.file = paste0(file,'-master.tex')
 writeLines(myTeX,my.tex.file)
-
 
 ## Convert to BibTeX
 
