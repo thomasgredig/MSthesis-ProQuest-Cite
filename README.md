@@ -20,7 +20,7 @@ After the theses are found, select the `Cite`, then choose BibTeX as the style a
 
 ProQuest incorrectly categorizes mastertheses as phdtheses, so the references do not show up properly. The reformatting follows the (BibTeX examples)[https://www.verbosus.com/bibtex-style-examples.html].
 
-ProQuest does not export the school / university either, so it needs to be added separately. 
+ProQuest does not export the school / university either, so it needs to be added separately.
 
 
 # Converting output
@@ -29,4 +29,21 @@ Follow these steps:
 
 * Configure `myConfig.R` with the path information
 * Save the source data as explained above in a text file with the extension `.txt` and the text `ProQuest` somewhere in the filename.
-* Run `msThesis-master.R` to pick-up latest source data file and convert to bib file with the same name. 
+* Run `msThesis-master.R` to pick-up latest source data file and convert to bib file with the same name.
+
+
+# Example output
+
+The Masters' Thesis [Coercivity Dependence on Chain Length in a Low-Dimensional Magnetic System](https://books.google.com/books/about/Coercivity_Dependence_on_Chain_Length_in.html?id=mUThxgEACAAJ) would be cited as follows:
+
+```bibtex
+@mastersthesis{Cano_Coercivity_2019,
+  author       = {Kevin Cano},
+  title        = {Coercivity Dependence on Chain Length in a Low-Dimensional Magnetic System},
+  school       = {California State University Long Beach},
+  year         = 2019,
+  address      = {Long Beach, CA, USA},
+  month        = 1,
+  note         = {}
+}
+```
